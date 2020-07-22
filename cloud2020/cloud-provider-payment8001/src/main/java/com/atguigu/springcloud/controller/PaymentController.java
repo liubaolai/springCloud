@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @Slf4j
@@ -23,7 +24,8 @@ public class PaymentController {
     private String serverPort;
 
     @PostMapping(value = "/payment/create")
-    public CommonResult create(@RequestBody Payment payment){
+    public CommonResult create(Payment payment){
+        log.info("i am paymentCreate ~~~~~++++++++++++++++++++++++++++++   " + payment.getId());
         int result = paymentService.create(payment);
         log.info("**** insert result");
 
@@ -57,6 +59,22 @@ public class PaymentController {
 //        return payment;
 //    }
 
+
+    @GetMapping(value = "/payment/feign/timeout")
+    public String paymentFeignTimeout(){
+
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return serverPort;
+    }
+
+    @GetMapping(value = "/payment/lb")
+    public String gatPaymentLB(){
+        return serverPort;
+    }
 
 
     @PostMapping(value = "/payment/registerUser")
