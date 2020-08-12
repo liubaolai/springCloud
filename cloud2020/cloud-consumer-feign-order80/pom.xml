@@ -10,14 +10,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>cloud-consumer-feign-order80</artifactId>
-
     <dependencies>
-        <!-- openfeign 配置 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
-        <!--  Eureka client 自己集成了Ribbon     -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>

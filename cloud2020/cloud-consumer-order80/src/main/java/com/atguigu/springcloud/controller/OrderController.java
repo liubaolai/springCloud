@@ -30,7 +30,11 @@ public class OrderController {
         log.info("This is Function Name : CREATE, consumer port: 80  controller");
         return restTemplate.postForObject(PAYMENT_URL + "/payment/create", payment, CommonResult.class);
     }
-
+    @GetMapping("/zipkin")
+    public String zipkin(){
+        log.info("This is Function Name : zipkin, consumer port: 80  controller");
+        return restTemplate.getForObject(PAYMENT_URL + "/payment/zipkin", String.class);
+    }
 
     @GetMapping("/consumer/payment/get/{id}")
     public CommonResult<Payment> getPayment(@PathVariable("id") int id){

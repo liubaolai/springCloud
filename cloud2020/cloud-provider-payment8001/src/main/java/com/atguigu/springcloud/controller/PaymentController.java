@@ -58,17 +58,9 @@ public class PaymentController {
 //        }
 //        return payment;
 //    }
-
-
-    @GetMapping(value = "/payment/feign/timeout")
-    public String paymentFeignTimeout(){
-
-        try {
-            TimeUnit.SECONDS.sleep(3);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        return serverPort;
+    @GetMapping("/payment/zipkin")
+    public String paymentZipkin(){
+        return "hi,zipkin";
     }
 
     @GetMapping(value = "/payment/lb")
@@ -88,5 +80,13 @@ public class PaymentController {
         }
 
     }
-
+    @GetMapping(value="/payment/feign/timeout")
+    public String paymentFeignTimeout(){
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return serverPort;
+}
 }

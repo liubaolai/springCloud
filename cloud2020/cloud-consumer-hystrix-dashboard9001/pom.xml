@@ -12,6 +12,7 @@
     <artifactId>cloud-consumer-hystrix-dashboard9001</artifactId>
 
     <dependencies>
+        <!--histrix dashboard -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
